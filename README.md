@@ -281,6 +281,68 @@ Table Name: Location table
   * account `budget` is required.
 
 ```SQL
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 202 (class 1259 OID 16725)
+-- Name: accounts; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.accounts (
+    id smallint[] NOT NULL,
+    name name NOT NULL,
+    budget money NOT NULL
+);
+
+
+ALTER TABLE public.accounts OWNER TO postgres;
+
+--
+-- TOC entry 3188 (class 0 OID 16725)
+-- Dependencies: 202
+-- Data for Name: accounts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.accounts (id, name, budget) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3059 (class 2606 OID 16732)
+-- Name: accounts id; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.accounts
+    ADD CONSTRAINT id PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3061 (class 2606 OID 16734)
+-- Name: accounts name; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.accounts
+    ADD CONSTRAINT name UNIQUE (name);
+
+
+-- Completed on 2020-08-05 17:12:46 EDT
+
+--
+-- PostgreSQL database dump complete
+--
 
 ```
 
